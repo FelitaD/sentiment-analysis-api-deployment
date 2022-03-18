@@ -25,4 +25,4 @@ def register_users():
 
 if __name__ == '__main__':
     create_user_db()
-    app.run(port=5000, debug=True)
+    app.run(host='localhost', port=5000, debug=True)
