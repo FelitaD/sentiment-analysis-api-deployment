@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: sentiment_analysis_api
+    networks:
+      - api_network
+    ports:
+      - "5000:5000"
+
+  test_status:
+    build: tests/test_status/
+    container_name: test_status
+    networks:
+      - api_network
+    environment:
+      LOG: "1"
+    volumes:
+      - app-volume:/home/logs
+    depends_on:
+      - "api"
+
+  test_login:
+    build: tests/test_login/
+    container_name: test_login
+    networks:
+      - api_network
+    environment:
+      LOG: "1"
+    volumes:
+      - app-volume:/home/logs
+    depends_on:
+      - "api"
+
+  test_permissions:
+    build: tests/test_permissions/
+    container_name: test_permissions
+    networks:
+      - api_network
+    environment:
+      LOG: "1"
+    volumes:
+      - app-volume:/home/logs
+    depends_on:
+      - "api"
+
+  test_analyzer_1:
+    build: tests/test_analyzer_1/
+    container_name: test_analyzer_1
+    networks:
+      - api_network
+    environment:
+      LOG: "1"
+    volumes:
+      - app-volume:/home/logs
+    depends_on:
+      - "api"
+
+  test_analyzer_2:
+    build: tests/test_analyzer_2/
+    container_name: test_analyzer_2
+    networks:
+      - api_network
+    environment:
+      LOG: "1"
+    volumes:
+      - app-volume:/home/logs
+    depends_on:
+      - "api"
+
+networks:
+  api_network:
+volumes:
+  app-volume:

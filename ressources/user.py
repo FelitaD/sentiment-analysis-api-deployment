@@ -3,7 +3,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token, jwt_re
 from hmac import compare_digest
 
 
-from api.models.user import UserModel
+from models.user import UserModel
 
 _parser = reqparse.RequestParser()
 _parser.add_argument('username', type=str, required=True, help="This field cannot be blank")

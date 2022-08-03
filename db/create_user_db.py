@@ -3,6 +3,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import pandas as pd
+import os
+
+# pwd = os.environ.get('PWD')
+# credentials_path = os.path.join(pwd, 'credentials.csv')
+credentials_path = 'db/credentials.csv'
 
 Base = declarative_base()
 
@@ -29,7 +34,7 @@ def create_user_db():
         db_session.bind = engine
         session = db_session()
 
-        users = pd.read_csv('/Users/donor/PycharmProjects/Sentiment_Analysis_API/credentials.csv')
+        users = pd.read_csv(credentials_path)
 
         for i in range(len(users)):
 

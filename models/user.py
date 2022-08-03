@@ -1,6 +1,6 @@
 import pandas as pd
 
-from api.db import db
+from db.db import db
 
 
 class UserModel(db.Model):

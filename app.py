@@ -2,11 +2,11 @@ import flask
 from flask_restful import Api
 
 
-from api import create_app
-from api.ressources.sentiment_analyzer import SentimentAnalyzerV1, SentimentAnalyzerV2
-from api.ressources.user import UserLogin, UserPermissions, UserWelcome
-from api.ressources.status import Status
-from create_user_db import create_user_db
+from create_app import create_app
+from ressources.sentiment_analyzer import SentimentAnalyzerV1, SentimentAnalyzerV2
+from ressources.user import UserLogin, UserPermissions, UserWelcome
+from ressources.status import Status
+from db.create_user_db import create_user_db
 
 app = create_app()
 api = Api(app)
@@ -25,4 +25,4 @@ def register_users():
 
 if __name__ == '__main__':
     create_user_db()
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(host='localhost', debug=True)

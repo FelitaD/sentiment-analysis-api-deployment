@@ -1,8 +1,8 @@
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from api.models.sentiment_analyzer import SentimentModel
-from api.models.user import UserModel
+from models.sentiment_analyzer import SentimentModel
+from models.user import UserModel
 
 
 class SentimentAnalyzer(Resource):

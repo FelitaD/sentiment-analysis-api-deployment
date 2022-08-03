@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from flask_jwt_extended import JWTManager
 
-from api.db import db
+from db.db import db
 
 
 def create_app():
