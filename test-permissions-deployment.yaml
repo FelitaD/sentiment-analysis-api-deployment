@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: test-permissions
+  name: test-permissions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: test-permissions
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/api_network: "true"
+        io.kompose.service: test-permissions
+    spec:
+      containers:
+        - env:
+            - name: LOG
+              value: "1"
+          image: test-permissions
+          name: test-permissions
+          resources: {}
+          volumeMounts:
+            - mountPath: /home/logs
+              name: app-volume
+      restartPolicy: Always
+      volumes:
+        - name: app-volume
+          persistentVolumeClaim:
+            claimName: app-volume
+status: {}

@@ -1,11 +1,11 @@
-https://colab.research.google.com/drive/1CjO_OtzOt2bNEia_WD8cX8o6IoMYZO47#scrollTo=dgwVRnl0nu3L
+## Sentiment Analysis API Deployment
 
-## Sentiment Analysis API
+A REST API that allow user to analyse the sentiment of a sentence.
+[Original sentiment model](https://github.com/FelitaD/sentiment-analysis-notebook/blob/main/Reviews_Final.ipynb)
 
-After authentification, the user can provide a sentence that will yield a polarity score.
-There are 2 versions of the sentence analyzer.<br>
+Users can access 2 versions of the sentence analyzer dependending on their authorization.<br>
 
-You can find the API documentation [here](https://documenter.getpostman.com/view/17951830/UVktpYz8)
+[Full API documentation](https://documenter.getpostman.com/view/17951830/UVktpYz8)
 
 ## Tests
 

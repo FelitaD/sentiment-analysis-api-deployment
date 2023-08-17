@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: test-analyzer-1
+  name: test-analyzer-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: test-analyzer-1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/api_network: "true"
+        io.kompose.service: test-analyzer-1
+    spec:
+      containers:
+        - env:
+            - name: LOG
+              value: "1"
+          image: test-analyzer-1
+          name: test-analyzer-1
+          resources: {}
+          volumeMounts:
+            - mountPath: /home/logs
+              name: app-volume
+      restartPolicy: Always
+      volumes:
+        - name: app-volume
+          persistentVolumeClaim:
+            claimName: app-volume
+status: {}
