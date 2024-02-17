@@ -1,5 +1,7 @@
 ## Sentiment Analysis API Deployment
 
+![img](sentiment-analysis-api-deployment.png)
+
 A REST API that allow user to analyse the sentiment of a sentence.
 [Original sentiment model](https://github.com/FelitaD/sentiment-analysis-notebook/blob/main/Reviews_Final.ipynb)
 
